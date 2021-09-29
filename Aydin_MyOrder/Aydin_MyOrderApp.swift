@@ -11,7 +11,7 @@ import SwiftUI
 struct Aydin_MyOrderApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            FirstView()
         }
     }
 }
