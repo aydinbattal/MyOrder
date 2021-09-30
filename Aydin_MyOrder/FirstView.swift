@@ -8,17 +8,17 @@
 import SwiftUI
 
 enum Type: String {
-    case darkRoast
-    case originalBlend
-    case vanilla
+    case darkRoast = "Dark Roast"
+    case originalBlend = "Original Blend"
+    case vanilla = "Vanilla"
     
     var id: String { self.rawValue }
 }
 
 enum Size: String {
-    case small
-    case medium
-    case large
+    case small = "Small"
+    case medium = "Medium"
+    case large = "Large"
     
     var id: String { self.rawValue }
 }
