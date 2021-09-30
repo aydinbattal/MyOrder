@@ -13,6 +13,7 @@
 		DB752FC92704F709005B43F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB752FC82704F709005B43F0 /* Preview Assets.xcassets */; };
 		DB752FD127050018005B43F0 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB752FD027050018005B43F0 /* Order.swift */; };
 		DB752FD3270501D9005B43F0 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB752FD2270501D9005B43F0 /* FirstView.swift */; };
+		DB752FD527061879005B43F0 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB752FD427061879005B43F0 /* SecondView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		DB752FCA2704F709005B43F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB752FD027050018005B43F0 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		DB752FD2270501D9005B43F0 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		DB752FD427061879005B43F0 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				DB752FC72704F709005B43F0 /* Preview Content */,
 				DB752FD027050018005B43F0 /* Order.swift */,
 				DB752FD2270501D9005B43F0 /* FirstView.swift */,
+				DB752FD427061879005B43F0 /* SecondView.swift */,
 			);
 			path = Aydin_MyOrder;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB752FD127050018005B43F0 /* Order.swift in Sources */,
+				DB752FD527061879005B43F0 /* SecondView.swift in Sources */,
 				DB752FD3270501D9005B43F0 /* FirstView.swift in Sources */,
 				DB752FC42704F702005B43F0 /* OrderDetailsView.swift in Sources */,
 				DB752FC22704F702005B43F0 /* Aydin_MyOrderApp.swift in Sources */,

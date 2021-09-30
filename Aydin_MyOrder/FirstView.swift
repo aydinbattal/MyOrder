@@ -29,9 +29,12 @@ struct FirstView: View {
     @State private var tfQuantity : String = ""
     @State private var orderList = [Order]()
     
+    @State private var selection : Int? = nil
+    
     var body: some View {
         NavigationView{
         VStack{
+            NavigationLink(destination: SecondView(orderList: orderList), tag: 1, selection: $selection){}
             Text("Type:")
             Picker("Type", selection: $selectedType) {
                 Text("Dark Roast").tag(Type.darkRoast)
@@ -58,7 +61,9 @@ struct FirstView: View {
                 Text("Place Order")
             }
         }
-        .navigationBarItems(trailing: Button(action: {}){
+        .navigationBarItems(trailing: Button(action: {
+            self.selection = 1;
+        }){
                                 Text("My Orders")
                                 Image(systemName: "list.bullet.rectangle.portrait")})
         }
