@@ -3,7 +3,7 @@
 //  Aydin_MyOrder
 //
 //  Created by Aydin Battal on 2021-09-29.
-//
+//  Studend ID: 991521740
 
 import SwiftUI
 
@@ -25,6 +25,7 @@ struct OrderDetailsView: View {
             Text("Quantity: \(self.order.quantity)")
                 .padding(20)
             
+            Spacer()
         }
     }
 }

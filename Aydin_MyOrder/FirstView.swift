@@ -3,14 +3,14 @@
 //  Aydin_MyOrder
 //
 //  Created by Aydin Battal on 2021-09-29.
-//
+//  Studend ID: 991521740
 
 import SwiftUI
 
 enum Type: String {
-    case darkRoast = "Dark Roast"
-    case originalBlend = "Original Blend"
-    case vanilla = "Vanilla"
+case darkRoast = "Dark Roast"
+case originalBlend = "Original Blend"
+case vanilla = "Vanilla"
     
     var id: String { self.rawValue }
 }
@@ -33,39 +33,63 @@ struct FirstView: View {
     
     var body: some View {
         NavigationView{
-        VStack{
-            NavigationLink(destination: SecondView(orderList: orderList), tag: 1, selection: $selection){}
-            Text("Type:")
-            Picker("Type", selection: $selectedType) {
-                Text("Dark Roast").tag(Type.darkRoast)
-                Text("Original Blend").tag(Type.originalBlend)
-                Text("Vanilla").tag(Type.vanilla)
+            VStack{
+                NavigationLink(destination: SecondView(orderList: orderList), tag: 1, selection: $selection){}
+                Text("Customize Your Order")
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .padding(50)
+                    .frame(width: 500, alignment: .center)
+                
+                HStack{
+                    Text("Type:").frame(width:125,alignment: .center)
+                    Picker("Type", selection: $selectedType) {
+                        Text("Dark Roast").tag(Type.darkRoast)
+                        Text("Original Blend").tag(Type.originalBlend)
+                        Text("Vanilla").tag(Type.vanilla)
+                    }
+                    .frame(width:125,alignment: .leading)
+                    //            Text("Selected Type: \(selectedType.rawValue)")
+                }
+                
+                HStack{
+                    Text("Size:").frame(width:125,alignment: .center)
+                    Picker("Size", selection: $selectedSize) {
+                        Text("Small").tag(Size.small)
+                        Text("Medium").tag(Size.medium)
+                        Text("Large").tag(Size.large)
+                    }
+                    .frame(width:125,alignment: .leading)
+                    //            Text("Selected Size: \(selectedSize.rawValue)")
+                }
+                
+                HStack{
+                    
+                    Text("Quantity:").frame(width:125,alignment: .center)
+                        
+                    TextField("Enter Quantity", text: $tfQuantity).keyboardType(.numberPad).frame(width:125,alignment: .leading)
+                    
+                    
+                }
+//                .frame(width: 200, alignment: .center)
+                
+                
+                Spacer()
+                
+                Button(action: {
+                    let quantity = Int(tfQuantity)
+                    let currentOrder = Order(type: selectedType.rawValue, size: selectedSize.rawValue, quantity: quantity!)
+                    self.orderList.append(currentOrder)
+                    print(orderList)
+                }){
+                    Text("Place Order")
+                }
             }
-            Text("Selected Type: \(selectedType.rawValue)")
-            
-            Picker("Size", selection: $selectedSize) {
-                Text("Small").tag(Size.small)
-                Text("Medium").tag(Size.medium)
-                Text("Large").tag(Size.large)
-            }
-            Text("Selected Size: \(selectedSize.rawValue)")
-            
-            TextField("Enter Quantity", text: $tfQuantity).keyboardType(.numberPad)
-            
-            Button(action: {
-                let quantity = Int(tfQuantity)
-                let currentOrder = Order(type: selectedType.rawValue, size: selectedSize.rawValue, quantity: quantity!)
-                self.orderList.append(currentOrder)
-                print(orderList)
+            .navigationTitle(Text("Coffee Shop"))
+            .navigationBarItems(trailing: Button(action: {
+                self.selection = 1;
             }){
-                Text("Place Order")
-            }
-        }
-        .navigationBarItems(trailing: Button(action: {
-            self.selection = 1;
-        }){
-                                Text("My Orders")
-                                Image(systemName: "list.bullet.rectangle.portrait")})
+                //                                Text("My Orders")
+                Image(systemName: "list.bullet.rectangle.portrait")})
         }
     }
 }
