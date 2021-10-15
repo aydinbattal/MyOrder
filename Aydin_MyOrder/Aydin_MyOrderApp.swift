@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct Aydin_MyOrderApp: App {
+    let persistenceController = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
             FirstView()

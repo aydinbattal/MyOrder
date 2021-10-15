@@ -29,7 +29,7 @@ struct PersistenceController{
         
         container.loadPersistentStores(completionHandler: {(storeDescription, error) in
             if let error = error as NSError?{
-                print("Unable to access CoreData BookDB \(error)")
+                print("Unable to access CoreData MyOrder \(error)")
             }
         })
         
