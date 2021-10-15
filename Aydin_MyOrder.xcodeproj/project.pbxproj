@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DB3C1CB1271A272C001F25F4 /* MyOrder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB3C1CAF271A272C001F25F4 /* MyOrder.xcdatamodeld */; };
 		DB3C1CB4271A2CD0001F25F4 /* OrderMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C1CB3271A2CD0001F25F4 /* OrderMO.swift */; };
+		DB3C1CB8271A3303001F25F4 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C1CB7271A3303001F25F4 /* Persistence.swift */; };
 		DB752FC22704F702005B43F0 /* Aydin_MyOrderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB752FC12704F702005B43F0 /* Aydin_MyOrderApp.swift */; };
 		DB752FC42704F702005B43F0 /* OrderDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB752FC32704F702005B43F0 /* OrderDetailsView.swift */; };
 		DB752FC62704F709005B43F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB752FC52704F709005B43F0 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		DB3C1CB0271A272C001F25F4 /* MyOrder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyOrder.xcdatamodel; sourceTree = "<group>"; };
 		DB3C1CB3271A2CD0001F25F4 /* OrderMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMO.swift; sourceTree = "<group>"; };
+		DB3C1CB7271A3303001F25F4 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		DB752FBE2704F702005B43F0 /* Aydin_MyOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aydin_MyOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB752FC12704F702005B43F0 /* Aydin_MyOrderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aydin_MyOrderApp.swift; sourceTree = "<group>"; };
 		DB752FC32704F702005B43F0 /* OrderDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		DB3C1CB6271A32E6001F25F4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB3C1CB7271A3303001F25F4 /* Persistence.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		DB752FB52704F702005B43F0 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +91,7 @@
 		DB752FC02704F702005B43F0 /* Aydin_MyOrder */ = {
 			isa = PBXGroup;
 			children = (
+				DB3C1CB6271A32E6001F25F4 /* Controllers */,
 				DB3C1CB5271A309B001F25F4 /* Views */,
 				DB3C1CB2271A2CB1001F25F4 /* Models */,
 				DB752FC12704F702005B43F0 /* Aydin_MyOrderApp.swift */,
@@ -170,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB752FD127050018005B43F0 /* Order.swift in Sources */,
+				DB3C1CB8271A3303001F25F4 /* Persistence.swift in Sources */,
 				DB752FD527061879005B43F0 /* SecondView.swift in Sources */,
 				DB752FD3270501D9005B43F0 /* FirstView.swift in Sources */,
 				DB752FC42704F702005B43F0 /* OrderDetailsView.swift in Sources */,
