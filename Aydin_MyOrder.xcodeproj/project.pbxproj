@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB3C1CB1271A272C001F25F4 /* MyOrder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB3C1CAF271A272C001F25F4 /* MyOrder.xcdatamodeld */; };
+		DB3C1CB4271A2CD0001F25F4 /* OrderMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C1CB3271A2CD0001F25F4 /* OrderMO.swift */; };
 		DB752FC22704F702005B43F0 /* Aydin_MyOrderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB752FC12704F702005B43F0 /* Aydin_MyOrderApp.swift */; };
 		DB752FC42704F702005B43F0 /* OrderDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB752FC32704F702005B43F0 /* OrderDetailsView.swift */; };
 		DB752FC62704F709005B43F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB752FC52704F709005B43F0 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB3C1CB0271A272C001F25F4 /* MyOrder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyOrder.xcdatamodel; sourceTree = "<group>"; };
+		DB3C1CB3271A2CD0001F25F4 /* OrderMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMO.swift; sourceTree = "<group>"; };
 		DB752FBE2704F702005B43F0 /* Aydin_MyOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aydin_MyOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB752FC12704F702005B43F0 /* Aydin_MyOrderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aydin_MyOrderApp.swift; sourceTree = "<group>"; };
 		DB752FC32704F702005B43F0 /* OrderDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsView.swift; sourceTree = "<group>"; };
@@ -39,6 +43,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB3C1CB2271A2CB1001F25F4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DB752FD027050018005B43F0 /* Order.swift */,
+				DB3C1CB3271A2CD0001F25F4 /* OrderMO.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DB3C1CB5271A309B001F25F4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DB752FD427061879005B43F0 /* SecondView.swift */,
+				DB752FC32704F702005B43F0 /* OrderDetailsView.swift */,
+				DB752FD2270501D9005B43F0 /* FirstView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DB752FB52704F702005B43F0 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +81,13 @@
 		DB752FC02704F702005B43F0 /* Aydin_MyOrder */ = {
 			isa = PBXGroup;
 			children = (
+				DB3C1CB5271A309B001F25F4 /* Views */,
+				DB3C1CB2271A2CB1001F25F4 /* Models */,
 				DB752FC12704F702005B43F0 /* Aydin_MyOrderApp.swift */,
-				DB752FC32704F702005B43F0 /* OrderDetailsView.swift */,
 				DB752FC52704F709005B43F0 /* Assets.xcassets */,
 				DB752FCA2704F709005B43F0 /* Info.plist */,
 				DB752FC72704F709005B43F0 /* Preview Content */,
-				DB752FD027050018005B43F0 /* Order.swift */,
-				DB752FD2270501D9005B43F0 /* FirstView.swift */,
-				DB752FD427061879005B43F0 /* SecondView.swift */,
+				DB3C1CAF271A272C001F25F4 /* MyOrder.xcdatamodeld */,
 			);
 			path = Aydin_MyOrder;
 			sourceTree = "<group>";
@@ -151,6 +173,8 @@
 				DB752FD527061879005B43F0 /* SecondView.swift in Sources */,
 				DB752FD3270501D9005B43F0 /* FirstView.swift in Sources */,
 				DB752FC42704F702005B43F0 /* OrderDetailsView.swift in Sources */,
+				DB3C1CB4271A2CD0001F25F4 /* OrderMO.swift in Sources */,
+				DB3C1CB1271A272C001F25F4 /* MyOrder.xcdatamodeld in Sources */,
 				DB752FC22704F702005B43F0 /* Aydin_MyOrderApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +364,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DB3C1CAF271A272C001F25F4 /* MyOrder.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DB3C1CB0271A272C001F25F4 /* MyOrder.xcdatamodel */,
+			);
+			currentVersion = DB3C1CB0271A272C001F25F4 /* MyOrder.xcdatamodel */;
+			path = MyOrder.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DB752FB62704F702005B43F0 /* Project object */;
 }
