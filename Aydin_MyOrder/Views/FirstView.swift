@@ -7,22 +7,6 @@
 
 import SwiftUI
 
-//enum Type: String {
-//case darkRoast = "Dark Roast"
-//case originalBlend = "Original Blend"
-//case vanilla = "Vanilla"
-//    
-//    var id: String { self.rawValue }
-//}
-//
-//enum Size: String {
-//    case small = "Small"
-//    case medium = "Medium"
-//    case large = "Large"
-//    
-//    var id: String { self.rawValue }
-//}
-
 struct FirstView: View {
     @State private var selectedType = Type.darkRoast
     @State private var selectedSize = Size.small
@@ -79,10 +63,6 @@ struct FirstView: View {
                 
                 Button(action: {
                     self.addNewOrder()
-                    //                    let quantity = Int(tfQuantity)
-                    //                    let currentOrder = Order(type: selectedType.rawValue, size: selectedSize.rawValue, quantity: quantity!)
-                    //                    self.orderList.append(currentOrder)
-                    //                    print(orderList)
                 }){
                     Text("Place Order")
                 }
