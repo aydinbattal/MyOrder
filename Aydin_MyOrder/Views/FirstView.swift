@@ -31,6 +31,8 @@ struct FirstView: View {
     
     @State private var selection : Int? = nil
     
+    @EnvironmentObject var coreDBHelper: CoreDBHelper
+    
     var body: some View {
         NavigationView{
             VStack{
@@ -76,10 +78,11 @@ struct FirstView: View {
                 Spacer()
                 
                 Button(action: {
-                    let quantity = Int(tfQuantity)
-                    let currentOrder = Order(type: selectedType.rawValue, size: selectedSize.rawValue, quantity: quantity!)
-                    self.orderList.append(currentOrder)
-                    print(orderList)
+                    self.addNewOrder()
+//                    let quantity = Int(tfQuantity)
+//                    let currentOrder = Order(type: selectedType.rawValue, size: selectedSize.rawValue, quantity: quantity!)
+//                    self.orderList.append(currentOrder)
+//                    print(orderList)
                 }){
                     Text("Place Order")
                 }
@@ -90,6 +93,16 @@ struct FirstView: View {
             }){
                 //                                Text("My Orders")
                 Image(systemName: "list.bullet.rectangle.portrait")})
+        }
+    }//body
+    
+    private func addNewOrder(){
+        let quantity = Int(tfQuantity)
+        
+        if(!self.selectedType.rawValue.isEmpty && !self.selectedSize.rawValue.isEmpty && !(quantity == nil)){
+            self.coreDBHelper.insertOrder(newOrder: Order(type: selectedType.rawValue, size: selectedSize.rawValue, quantity: quantity!))
+        }else{
+            print(#function, "Nothing can be empty")
         }
     }
 }

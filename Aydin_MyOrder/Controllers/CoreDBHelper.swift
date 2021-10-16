@@ -30,4 +30,25 @@ class CoreDBHelper : ObservableObject{
     init(context: NSManagedObjectContext){
         self.moc = context
     }
+    
+    func insertOrder(newOrder: Order){
+        do{
+            //1. obtain the object of NSEntityDescription
+            let orderToBeInserted = NSEntityDescription.insertNewObject(forEntityName: self.ENTITY_NAME, into: self.moc) as! OrderMO
+            //2. assign values to be inserted to the object reference
+            orderToBeInserted.type = newOrder.type
+            orderToBeInserted.size = newOrder.size
+            orderToBeInserted.quantity = newOrder.quantity
+            orderToBeInserted.id = UUID()
+            orderToBeInserted.date = Date()
+            //3. save the object to the db
+            if self.moc.hasChanges{
+                try self.moc.save()
+                print(#function, "Order successfully added to DB")
+            }
+            
+        }catch let error as NSError{
+            print(#function, "Could not insert order successfulyy \(error)")
+        }
+    }
 }
