@@ -20,6 +20,8 @@ struct OrderDetailsView: View {
     let selectedOrderIndex : Int
     @EnvironmentObject var coreDBHelper: CoreDBHelper
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack{
             Text("Order Details")
@@ -47,6 +49,13 @@ struct OrderDetailsView: View {
                 
                 TextField("Quantity:", text: self.$quantity)
                     .keyboardType(.numberPad)
+            }
+            
+            Button(action: {
+                self.updateOrder()
+                self.presentationMode.wrappedValue.dismiss()
+            }){
+                Text("Update Order Details")
             }
             
             
@@ -77,6 +86,14 @@ struct OrderDetailsView: View {
             
             self.quantity = String(self.coreDBHelper.orderList[selectedOrderIndex].quantity)
         }
+    }
+    
+    private func updateOrder(){
+        self.coreDBHelper.orderList[selectedOrderIndex].type = self.selectedType.rawValue
+        self.coreDBHelper.orderList[selectedOrderIndex].size = self.selectedSize.rawValue
+        self.coreDBHelper.orderList[selectedOrderIndex].quantity = Int(self.quantity)!
+        
+        self.coreDBHelper.updateOrder(updatedOrder: self.coreDBHelper.orderList[selectedOrderIndex])
     }
 }
 

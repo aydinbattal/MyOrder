@@ -66,4 +66,48 @@ class CoreDBHelper : ObservableObject{
             print(#function, "Couldn't fetch data from DB \(error)")
         }
     }
+    
+    private func searchOrder(orderID: UUID) -> OrderMO?{
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: ENTITY_NAME)
+        let predicateID = NSPredicate(format: "id == %@", orderID as CVarArg)
+        fetchRequest.predicate = predicateID
+        
+        do{
+            let result = try self.moc.fetch(fetchRequest)
+            
+            if result.count > 0{
+                return result.first as? OrderMO
+            }
+        }catch let error as NSError{
+            print(#function, "Unable to search for given ID \(error)")
+        }
+        
+        return nil
+        
+    }
+    
+    func updateOrder(updatedOrder: OrderMO){
+        let searchResult = self.searchOrder(orderID: updatedOrder.id as UUID)
+        
+        if(searchResult != nil){
+            //if matching object found
+            do{
+                let orderToUpdate = searchResult!
+                orderToUpdate.type = updatedOrder.type
+                orderToUpdate.size = updatedOrder.size
+                orderToUpdate.quantity = updatedOrder.quantity
+                
+                try self.moc.save()
+//                objectWillChange.send()
+                
+                print(#function, "Data updated successfully")
+            }catch let error as NSError{
+                print(#function, "Unable to search for given ID \(error)")
+            }
+            
+        }else{
+            print(#function, "No matching record for given orderID \(updatedOrder.id)")
+        }
+    }
 }
