@@ -10,10 +10,11 @@ import SwiftUI
 @main
 struct Aydin_MyOrderApp: App {
     let persistenceController = PersistenceController.shared
+    let coreDBHelper = CoreDBHelper(context: PersistenceController.shared.container.viewContext)
     
     var body: some Scene {
         WindowGroup {
-            FirstView()
+            FirstView().environmentObject(coreDBHelper)
         }
     }
 }
