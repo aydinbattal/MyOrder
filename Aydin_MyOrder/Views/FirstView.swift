@@ -7,27 +7,27 @@
 
 import SwiftUI
 
-enum Type: String {
-case darkRoast = "Dark Roast"
-case originalBlend = "Original Blend"
-case vanilla = "Vanilla"
-    
-    var id: String { self.rawValue }
-}
-
-enum Size: String {
-    case small = "Small"
-    case medium = "Medium"
-    case large = "Large"
-    
-    var id: String { self.rawValue }
-}
+//enum Type: String {
+//case darkRoast = "Dark Roast"
+//case originalBlend = "Original Blend"
+//case vanilla = "Vanilla"
+//    
+//    var id: String { self.rawValue }
+//}
+//
+//enum Size: String {
+//    case small = "Small"
+//    case medium = "Medium"
+//    case large = "Large"
+//    
+//    var id: String { self.rawValue }
+//}
 
 struct FirstView: View {
     @State private var selectedType = Type.darkRoast
     @State private var selectedSize = Size.small
     @State private var tfQuantity : String = ""
-    @State private var orderList = [Order]()
+    //    @State private var orderList = [Order]()
     
     @State private var selection : Int? = nil
     
@@ -36,7 +36,7 @@ struct FirstView: View {
     var body: some View {
         NavigationView{
             VStack{
-                NavigationLink(destination: SecondView(orderList: orderList), tag: 1, selection: $selection){}
+                NavigationLink(destination: SecondView(), tag: 1, selection: $selection){}
                 Text("Customize Your Order")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .padding(50)
@@ -67,22 +67,22 @@ struct FirstView: View {
                 HStack{
                     
                     Text("Quantity:").frame(width:125,alignment: .center)
-                        
+                    
                     TextField("Enter Quantity", text: $tfQuantity).keyboardType(.numberPad).frame(width:125,alignment: .leading)
                     
                     
                 }
-//                .frame(width: 200, alignment: .center)
+                //                .frame(width: 200, alignment: .center)
                 
                 
                 Spacer()
                 
                 Button(action: {
                     self.addNewOrder()
-//                    let quantity = Int(tfQuantity)
-//                    let currentOrder = Order(type: selectedType.rawValue, size: selectedSize.rawValue, quantity: quantity!)
-//                    self.orderList.append(currentOrder)
-//                    print(orderList)
+                    //                    let quantity = Int(tfQuantity)
+                    //                    let currentOrder = Order(type: selectedType.rawValue, size: selectedSize.rawValue, quantity: quantity!)
+                    //                    self.orderList.append(currentOrder)
+                    //                    print(orderList)
                 }){
                     Text("Place Order")
                 }
@@ -93,7 +93,8 @@ struct FirstView: View {
             }){
                 //                                Text("My Orders")
                 Image(systemName: "list.bullet.rectangle.portrait")})
-        }
+        }//navview
+        
     }//body
     
     private func addNewOrder(){

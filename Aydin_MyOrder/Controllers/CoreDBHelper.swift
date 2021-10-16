@@ -51,4 +51,19 @@ class CoreDBHelper : ObservableObject{
             print(#function, "Could not insert order successfulyy \(error)")
         }
     }
+    
+    func getAllOrders(){
+        let fetchRequest = NSFetchRequest<OrderMO>(entityName: self.ENTITY_NAME)
+        fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: "date", ascending: false)]
+        
+        do{
+            let result = try self.moc.fetch(fetchRequest)
+            print(#function, "Number of records fetched: \(result.count)")
+            self.orderList.removeAll()
+            self.orderList.insert(contentsOf: result, at: 0)
+            print(#function, "Result from DB: \(result)")
+        }catch let error as NSError{
+            print(#function, "Couldn't fetch data from DB \(error)")
+        }
+    }
 }

@@ -7,8 +7,18 @@
 
 import SwiftUI
 
+
+
 struct OrderDetailsView: View {
-    let order: Order
+    //    let order: Order
+    @State private var type: String = ""
+    @State private var size: String = ""
+    @State private var quantity: String = ""
+    @State private var selectedType = Type.darkRoast
+    @State private var selectedSize = Size.small
+    
+    let selectedOrderIndex : Int
+    @EnvironmentObject var coreDBHelper: CoreDBHelper
     
     var body: some View {
         VStack{
@@ -16,23 +26,63 @@ struct OrderDetailsView: View {
                 .font(.title)
                 .padding(50)
             
-            Text("Type: \(self.order.type)")
-                .padding(20)
+            Picker("Type", selection: $selectedType) {
+                Text("Dark Roast").tag(Type.darkRoast)
+                Text("Original Blend").tag(Type.originalBlend)
+                Text("Vanilla").tag(Type.vanilla)
+            }
             
-            Text("Size: \(self.order.size)")
-                .padding(20)
             
-            Text("Quantity: \(self.order.quantity)")
-                .padding(20)
+            Picker("Size", selection: $selectedSize) {
+                Text("Small").tag(Size.small)
+                Text("Medium").tag(Size.medium)
+                Text("Large").tag(Size.large)
+            }
+            
+            Form{
+                
+                Text("\(selectedType.rawValue)")
+                
+                Text("\(selectedSize.rawValue)")
+                
+                TextField("Quantity:", text: self.$quantity)
+                    .keyboardType(.numberPad)
+            }
+            
             
             Spacer()
+        }
+        .onAppear(){
+            self.type = self.coreDBHelper.orderList[selectedOrderIndex].type
+            if(type == "Dark Roast"){
+                selectedType = Type.darkRoast
+            }
+            if(type == "Original Blend"){
+                selectedType = Type.originalBlend
+            }
+            if(type == "Vanilla"){
+                selectedType = Type.vanilla
+            }
+            
+            self.size = self.coreDBHelper.orderList[selectedOrderIndex].size
+            if(size == "Small"){
+                selectedSize = Size.small
+            }
+            if(size == "Medium"){
+                selectedSize = Size.medium
+            }
+            if(size == "Large"){
+                selectedSize = Size.large
+            }
+            
+            self.quantity = String(self.coreDBHelper.orderList[selectedOrderIndex].quantity)
         }
     }
 }
 
-struct OrderDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        OrderDetailsView(order: Order(type: "Dark Roast", size: "Small", quantity: 1))
-    }
-}
+//struct OrderDetailsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OrderDetailsView(order: Order(type: "Dark Roast", size: "Small", quantity: 1))
+//    }
+//}
 

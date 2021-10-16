@@ -8,20 +8,29 @@
 import SwiftUI
 
 struct SecondView: View {
-    var orderList = [Order]()
+//    var orderList = [Order]()
+    @EnvironmentObject var coreDBHelper: CoreDBHelper
     
     var body: some View {
         
             VStack{
+                if (self.coreDBHelper.orderList.count > 0){
                 List{
                     Section(header: Text("My Orders")){
-                        ForEach(self.orderList, id: \.id){currentOrder in
-                            NavigationLink(destination: OrderDetailsView(order: currentOrder)){
+                        ForEach(self.coreDBHelper.orderList.enumerated().map({$0}), id: \.element.self){indx, currentOrder in
+                            NavigationLink(destination: OrderDetailsView(selectedOrderIndex: indx)){
                                 ListRowView(order:currentOrder)
+                                    .onTapGesture {
+                                        print("\(self.coreDBHelper.orderList[indx]) selected")
+                                    }
                             }
-                        }
-                    }
+                        }//foreach
+                    }//section
                 }
+            }
+            }
+            .onAppear(){
+                self.coreDBHelper.getAllOrders()
             }
         
     }
@@ -34,7 +43,8 @@ struct SecondView_Previews: PreviewProvider {
 }
 
 struct ListRowView: View{
-    var order: Order
+    var order: OrderMO
+    @EnvironmentObject var coreDBHelper: CoreDBHelper
     
     var body: some View{
         VStack(alignment: .leading){
@@ -48,6 +58,6 @@ struct ListRowView: View{
             Text("\(order.quantity)")
                 .font(.callout)
                 .italic()
-        }
+        }.onAppear(){self.coreDBHelper.getAllOrders()}
     }
 }
