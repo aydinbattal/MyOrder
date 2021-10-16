@@ -25,6 +25,15 @@ struct SecondView: View {
                                     }
                             }
                         }//foreach
+                        .onDelete(perform: {indexSet in
+                            for index in indexSet {
+                                //ask for confirmation and then delete
+                                self.coreDBHelper.deleteOrder(orderID: self.coreDBHelper.orderList[index].id)
+                                self.coreDBHelper.orderList.remove(atOffsets: indexSet)
+                            }
+                            
+                            
+                        })
                     }//section
                 }
             }

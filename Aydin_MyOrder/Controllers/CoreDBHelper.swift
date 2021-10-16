@@ -110,4 +110,24 @@ class CoreDBHelper : ObservableObject{
             print(#function, "No matching record for given orderID \(updatedOrder.id)")
         }
     }
+    
+    func deleteOrder(orderID: UUID){
+        let searchResult = self.searchOrder(orderID: orderID)
+        
+        if(searchResult != nil){
+            //if matching object found
+            do{
+                self.moc.delete(searchResult!)
+                
+                try self.moc.save()
+                
+                print(#function, "Data deleted successfully")
+            }catch let error as NSError{
+                print(#function, "Unable to search for given ID \(error)")
+            }
+            
+        }else{
+            print(#function, "No matching record for given orderID \(orderID)")
+        }
+    }
 }
